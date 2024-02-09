@@ -11,36 +11,36 @@ public class Spawner : MonoBehaviour
     }
 
     public SpawnableObject[] objects;
+    public float minSpawnRate = 1f;
+    public float maxSpawnRate = 2f;
 
-    public float minSpawnrate = 1f;
-    public float maxSpawnrate = 2f;
-
-    private void Enable()
+    private void OnEnable()
     {
-        Invoke(nameof(Spawn), Random.Range(minSpawnrate, maxSpawnrate));
+        Invoke(nameof(Spawn), Random.Range(minSpawnRate, maxSpawnRate));
     }
 
     private void OnDisable()
     {
-        CancelInvoke(nameof(Spawn));
+        CancelInvoke();
     }
 
     private void Spawn()
     {
-        float SpawnChance = Random.value;
+        float spawnChance = Random.value;
 
-        foreach(var obj in objects)
+        foreach (var obj in objects)
         {
-            if (SpawnChance < obj.spawnChance)
+            if (spawnChance < obj.spawnChance)
             {
                 GameObject obstacle = Instantiate(obj.prefab);
                 obstacle.transform.position += transform.position;
                 break;
             }
 
-            SpawnChance -= obj.spawnChance;
+            spawnChance -= obj.spawnChance;
         }
 
-        Invoke(nameof(Spawn), Random.Range(minSpawnrate, maxSpawnrate));
+        Invoke(nameof(Spawn), Random.Range(minSpawnRate, maxSpawnRate));
     }
+
 }
