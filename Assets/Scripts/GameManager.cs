@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -72,10 +73,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameSpeed = 0f;
+
         enabled = false;
 
-        player.ChangeSprite();
-
+        player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);

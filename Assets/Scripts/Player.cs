@@ -5,8 +5,6 @@ public class Player : MonoBehaviour
     private CharacterController Character;
     private Vector3 Direction;
 
-    public Sprite DeadClio;
-
     public float gravity = 9.8f * 2f;
     public float JumpForce = 8f;
 
@@ -42,11 +40,6 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Obstacle")) {
             GameManager.Instance.GameOver();
         }
-    }
-
-    public void ChangeSprite()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = DeadClio;
     }
 
 }
