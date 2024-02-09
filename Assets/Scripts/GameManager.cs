@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
         GameSpeed = 0f;
         enabled = false;
 
-        player.gameObject.SetActive(false);
+        player.ChangeSprite();
+
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);

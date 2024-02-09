@@ -1318,6 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acba21f2c0462c2f38900ade3f4b3598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeadClio: {fileID: 21300000, guid: 1dc41253d9147fe08a3f64cd7fc40fd7, type: 3}
   gravity: 19.6
   JumpForce: 8
 --- !u!212 &2031695338
